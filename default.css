@@ -9,26 +9,38 @@ body {
   text-align: center;
 }
 
+#overlay {
+  background-color: #324552;
+  opacity: .85;
+  left: 0;
+  top: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
 button {
   width: 100px;
-  height: 50px:
+  height: 50px;
   margin: auto;
   background-color: #6e748d;
 }
 
-.player {
+.game {
+  visibility: hidden;
+}
+
+#player {
   width: 75px;
   height: 100px;
   position: fixed;
   left: 0;
   top: 0;
-  visibility: visible;
 }
 
 .cone {
   width: 40px;
   position: fixed;
-  visibility: hidden;
 }
 
 [data-id="cone-1"] {
