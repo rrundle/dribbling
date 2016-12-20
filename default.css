@@ -10,8 +10,8 @@ body {
 }
 
 #overlay {
-  background-color: #324552;
-  opacity: .85;
+  background-color: #000000;
+  opacity: 1;
   left: 0;
   top: 0;
   position: absolute;
