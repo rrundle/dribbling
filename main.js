@@ -1,3 +1,8 @@
+//Setting variables
+var guy = document.querySelector('.player')
+
+var dribbler = new Player([0, 0], 'east', 1.5, guy)
+
 //functions and prototypes
 
 function Player(location, direction, speed, marker) {
@@ -44,5 +49,32 @@ document.addEventListener('click', function(e) {
     var hide = document.querySelectorAll('.intro')
     var view = document.querySelectorAll('.game')
     viewSwitch(hide, view)
+    setInterval(function() {
+      dribbler.NewSpot()
+    }, 1)
+  }
+})
+
+document.addEventListener('keydown', function(e) {
+  switch(e.keyCode) {
+    case 38:
+    dribbler.direction = 'north'
+    break
+
+    case 40:
+    dribbler.direction = 'south'
+    break
+
+    case 39:
+    dribbler.direction = 'east'
+    break
+
+    case 37:
+    dribbler.direction = 'west'
+    break
+
+    default:
+    dribbler.speed = 0
+    break
   }
 })
