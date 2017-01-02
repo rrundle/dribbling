@@ -1,0 +1,119 @@
+body {
+  background-image: url('http://i.imgur.com/M4EwW1F.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.intro {
+  color: white;
+  text-align: center;
+}
+
+#overlay {
+  background-color: #000000;
+  opacity: 1;
+  left: 0;
+  top: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  width: 100px;
+  height: 50px;
+  margin: auto;
+  background-color: #6e748d;
+}
+
+.game {
+  visibility: hidden;
+}
+
+#player {
+  width: 75px;
+  height: 100px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.cone {
+  width: 40px;
+  position: fixed;
+}
+
+[data-id="cone-1"] {
+  left: 250px;
+  top: 100px;
+}
+
+[data-id="cone-2"] {
+  left: 50px;
+  top: 350px;
+}
+
+[data-id="cone-3"] {
+  left: 550px;
+  top: 25px;
+}
+
+[data-id="cone-4"] {
+  left: 800px;
+  top: 325px;
+}
+
+[data-id="cone-5"] {
+  left: 975px;
+  top: 210px;
+}
+
+[data-id="cone-6"] {
+  left: 343px;
+  top: 530px;
+}
+
+[data-id="cone-7"] {
+  left: 590px;
+  top: 370px;
+}
+
+[data-id="cone-8"] {
+  left: 423px;
+  top: 248px;
+}
+
+[data-id="cone-9"] {
+  left: 1240px;
+  top: 112px;
+}
+
+[data-id="cone-10"] {
+  left: 723px;
+  top: 620px;
+}
+
+[data-id="cone-11"] {
+  left: 720px;
+  top: 172px;
+}
+
+[data-id="cone-12"] {
+  left: 1358px;
+  top: 487px;
+}
+
+[data-id="cone-13"] {
+  left: 1113px;
+  top: 355px;
+}
+
+[data-id="cone-14"] {
+  left: 175px;
+  top: 640px;
+}
+
+[data-id="cone-15"] {
+  left: 1150px;
+  top: 600px;
+}
