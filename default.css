@@ -43,77 +43,77 @@ button {
   position: fixed;
 }
 
-[data-id="cone-1"] {
+.cone-1 {
   left: 250px;
   top: 100px;
 }
 
-[data-id="cone-2"] {
+.cone-2 {
   left: 50px;
   top: 350px;
 }
 
-[data-id="cone-3"] {
+.cone-3 {
   left: 550px;
   top: 25px;
 }
 
-[data-id="cone-4"] {
+.cone-4 {
   left: 800px;
   top: 325px;
 }
 
-[data-id="cone-5"] {
+.cone-5 {
   left: 975px;
   top: 210px;
 }
 
-[data-id="cone-6"] {
+.cone-6 {
   left: 343px;
   top: 530px;
 }
 
-[data-id="cone-7"] {
+.cone-7 {
   left: 590px;
   top: 370px;
 }
 
-[data-id="cone-8"] {
+.cone-8 {
   left: 423px;
   top: 248px;
 }
 
-[data-id="cone-9"] {
+.cone-9 {
   left: 1240px;
   top: 112px;
 }
 
-[data-id="cone-10"] {
+.cone-10 {
   left: 723px;
   top: 620px;
 }
 
-[data-id="cone-11"] {
+.cone-11 {
   left: 720px;
   top: 172px;
 }
 
-[data-id="cone-12"] {
+.cone-12 {
   left: 1358px;
   top: 487px;
 }
 
-[data-id="cone-13"] {
+.cone-13 {
   left: 1113px;
   top: 355px;
 }
 
-[data-id="cone-14"] {
+.cone-14 {
   left: 175px;
   top: 640px;
 }
 
-[data-id="cone-15"] {
+.cone-15 {
   left: 1150px;
   top: 600px;
 }

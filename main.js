@@ -25,7 +25,6 @@ Player.prototype.NewSpot = function() {
   }
   if (this.direction === 'east') {
     this.location[0] += this.speed
-
   }
   if (this.direction === 'stop') {
     this.speed = 0
@@ -43,14 +42,37 @@ function viewSwitch(hide, view) {
   }
 }
 
+//Register a crash with a cone
+
+var cone = document.querySelectorAll('.cone')
+var player = document.getElementById('player')
+var coneArray = []
+
+for (var i = 0; i < cone.length; i++) {
+  coneArray.push({x: cone[i].offsetLeft, y: cone[i].offsetTop})
+}
+
+function crash(array, player) {
+  for (var i = 0; i < array.length; i++) {
+    if (((player.offsetLeft || (player.offsetLeft + 32)) >= array[i].x) && ((player.offsetLeft || (player.offsetLeft + 32)) <= (array[i].x + 40))) {
+      if ((((player.offsetTop + 80) || (player.offsetTop + 100)) >= array[i].y) && (((player.offsetTop + 80) || (player.offsetTop + 100)) <= (array[i].y + 30))) {
+        dribbler.speed = 0
+      }
+    }
+  }
+}
+
 //event listeners
 document.addEventListener('click', function(e) {
   if (e.target.className.indexOf('intro') !== -1) {
     var hide = document.querySelectorAll('.intro')
     var view = document.querySelectorAll('.game')
     viewSwitch(hide, view)
-    setInterval(function() {
+    setInterval(function () {
       dribbler.NewSpot()
+    }, 1)
+    setInterval(function () {
+      crash(coneArray, player)
     }, 1)
   }
 })
@@ -78,3 +100,9 @@ document.addEventListener('keydown', function(e) {
     break
   }
 })
+
+//game over/restart action
+//don't allow player to go off field
+//points counter
+//penalize somone for going ack and forth constantly
+//speed increases over time or levels
