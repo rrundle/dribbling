@@ -127,3 +127,17 @@ button {
   left: 1150px;
   top: 600px;
 }
+
+.crash {
+    visibility: hidden;
+}
+
+#tackle {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(http://i.imgur.com/uET5FWV.jpg);
+  background-repeat: no-repeat;
+}

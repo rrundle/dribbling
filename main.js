@@ -52,30 +52,34 @@ for (var i = 0; i < cone.length; i++) {
   coneArray.push({x: cone[i].offsetLeft, y: cone[i].offsetTop})
 }
 
-function crash(array, player) {
+var intro = document.querySelectorAll('.intro')
+var game = document.querySelectorAll('.game')
+var crash = document.querySelectorAll('.crash')
+
+function playerCrash(array, player) {
   for (var i = 0; i < array.length; i++) {
     if (((player.offsetLeft || (player.offsetLeft + 32)) >= array[i].x) && ((player.offsetLeft || (player.offsetLeft + 32)) <= (array[i].x + 40))) {
       if ((((player.offsetTop + 80) || (player.offsetTop + 100)) >= array[i].y) && (((player.offsetTop + 80) || (player.offsetTop + 100)) <= (array[i].y + 30))) {
         dribbler.speed = 0
+        viewSwitch(game, crash)
       }
     }
   }
   if (player.offsetTop < -80 || player.offsetTop > 620 || player.offsetLeft > 1420 || player.offsetLeft < 0) {
     dribbler.speed = 0
+    viewSwitch(game, crash)
   }
 }
 
 //event listeners
 document.addEventListener('click', function(e) {
   if (e.target.className.indexOf('intro') !== -1) {
-    var hide = document.querySelectorAll('.intro')
-    var view = document.querySelectorAll('.game')
-    viewSwitch(hide, view)
+    viewSwitch(intro, game)
     setInterval(function () {
       dribbler.NewSpot()
     }, 1)
     setInterval(function () {
-      crash(coneArray, player)
+      playerCrash(coneArray, player)
     }, 1)
   }
 })
