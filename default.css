@@ -2,6 +2,16 @@ body {
   background-image: url('http://i.imgur.com/M4EwW1F.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
+  position: fixed;
+}
+
+.field {
+  width: 1420px;
+  height: 700px;
+  top: 0;
+  left: 0;
+  border: solid 5px white;
+  margin: 0;
 }
 
 .intro {
@@ -14,7 +24,7 @@ body {
   opacity: 1;
   left: 0;
   top: 0;
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
 }

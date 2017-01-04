@@ -60,6 +60,9 @@ function crash(array, player) {
       }
     }
   }
+  if (player.offsetTop < -80 || player.offsetTop > 620 || player.offsetLeft > 1420 || player.offsetLeft < 0) {
+    dribbler.speed = 0
+  }
 }
 
 //event listeners
