@@ -63,6 +63,7 @@ for (var i = 0; i < cone.length; i++) {
 }
 
 function playerCrash(array, player) {
+  var totalScore = document.getElementById('score')
   for (var i = 0; i < array.length; i++) {
     if (((player.offsetLeft || (player.offsetLeft + 32)) >= array[i].x) && ((player.offsetLeft || (player.offsetLeft + 32)) <= (array[i].x + 40))) {
       if ((((player.offsetTop + 80) || (player.offsetTop + 100)) >= array[i].y) && (((player.offsetTop + 80) || (player.offsetTop + 100)) <= (array[i].y + 30))) {
@@ -71,6 +72,7 @@ function playerCrash(array, player) {
         clearInterval(startDribble)
         clearInterval(startCrash)
         clearInterval(pointCount)
+        totalScore.textContent = 'Dribbling points: ' + points
       }
     }
   }
@@ -80,6 +82,7 @@ function playerCrash(array, player) {
     clearInterval(startDribble)
     clearInterval(startCrash)
     clearInterval(pointCount)
+    totalScore.textContent = 'Dribbling points: ' + points
   }
 }
 
@@ -93,6 +96,8 @@ function checkCrash() {
 
 function pointCounter() {
   points += 1
+  var counter = document.getElementById('points')
+  counter.textContent = 'Skill points: ' + points
 }
 
 //EVENT LISTENERS
@@ -101,7 +106,7 @@ document.addEventListener('click', function(e) {
     viewSwitch(intro, game)
     startDribble = setInterval(dribble, 1)
     startCrash = setInterval(checkCrash, 1)
-    pointCount = setInterval(pointCounter, 100)
+    pointCount = setInterval(pointCounter, 25)
   }
 })
 
@@ -137,6 +142,7 @@ document.addEventListener('click', function(e) {
     viewSwitch(crash, game)
     startDribble = setInterval(dribble, 1)
     startCrash = setInterval(checkCrash, 1)
-    pointCount = setInterval(pointCounter, 100)
+    pointCount = setInterval(pointCounter, 25)
+    points = 0
   }
 })

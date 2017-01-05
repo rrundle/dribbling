@@ -40,6 +40,14 @@ button {
   visibility: hidden;
 }
 
+#legend {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 200px;
+  height: 100px;
+}
+
 #player {
   width: 75px;
   height: 100px;
