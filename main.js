@@ -14,6 +14,7 @@ var startCrash
 var pointCount
 
 var points = 0
+var sessions = 5
 
 var intro = document.querySelectorAll('.intro')
 var game = document.querySelectorAll('.game')
