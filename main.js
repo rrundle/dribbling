@@ -69,6 +69,7 @@ function playerCrash(array, player) {
     if (((player.offsetLeft || (player.offsetLeft + 32)) >= array[i].x) && ((player.offsetLeft || (player.offsetLeft + 32)) <= (array[i].x + 40))) {
       if ((((player.offsetTop + 80) || (player.offsetTop + 100)) >= array[i].y) && (((player.offsetTop + 80) || (player.offsetTop + 100)) <= (array[i].y + 30))) {
         dribbler.speed = 0
+        sessionCounter(sessions)
         viewSwitch(game, crash)
         clearInterval(startDribble)
         clearInterval(startCrash)
@@ -79,6 +80,7 @@ function playerCrash(array, player) {
   }
   if (player.offsetTop < -80 || player.offsetTop > 620 || player.offsetLeft > 1420 || player.offsetLeft < 0) {
     dribbler.speed = 0
+    sessionCounter(sessions)
     viewSwitch(game, crash)
     clearInterval(startDribble)
     clearInterval(startCrash)
@@ -99,6 +101,10 @@ function pointCounter() {
   points += 1
   var counter = document.getElementById('points')
   counter.textContent = 'Skill points: ' + points
+}
+
+function sessionCounter() {
+  sessions -= 1
 }
 
 //EVENT LISTENERS
