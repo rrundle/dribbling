@@ -11,6 +11,9 @@ var coneArray = []
 
 var startDribble
 var startCrash
+var pointCount
+
+var points = 0
 
 var intro = document.querySelectorAll('.intro')
 var game = document.querySelectorAll('.game')
@@ -67,7 +70,7 @@ function playerCrash(array, player) {
         viewSwitch(game, crash)
         clearInterval(startDribble)
         clearInterval(startCrash)
-
+        clearInterval(pointCount)
       }
     }
   }
@@ -76,16 +79,20 @@ function playerCrash(array, player) {
     viewSwitch(game, crash)
     clearInterval(startDribble)
     clearInterval(startCrash)
+    clearInterval(pointCount)
   }
 }
 
 function dribble() {
-  console.log(dribbler.location)
   dribbler.NewSpot()
 }
 
 function checkCrash() {
   playerCrash(coneArray, player)
+}
+
+function pointCounter() {
+  points += 1
 }
 
 //EVENT LISTENERS
@@ -94,6 +101,7 @@ document.addEventListener('click', function(e) {
     viewSwitch(intro, game)
     startDribble = setInterval(dribble, 1)
     startCrash = setInterval(checkCrash, 1)
+    pointCount = setInterval(pointCounter, 100)
   }
 })
 
@@ -116,7 +124,7 @@ document.addEventListener('keydown', function(e) {
     break
 
     default:
-    dribbler.speed = 0
+    dribbler.direction = 'east'
     break
   }
 })
@@ -129,5 +137,6 @@ document.addEventListener('click', function(e) {
     viewSwitch(crash, game)
     startDribble = setInterval(dribble, 1)
     startCrash = setInterval(checkCrash, 1)
+    pointCount = setInterval(pointCounter, 100)
   }
 })
