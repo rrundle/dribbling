@@ -15,12 +15,12 @@ body {
 }
 
 .intro {
-  color: white;
+  color: gray;
   text-align: center;
 }
 
 #overlay {
-  background-color: #000000;
+  background-color: #fff;
   opacity: 1;
   left: 0;
   top: 0;
@@ -34,6 +34,10 @@ button {
   height: 50px;
   margin: auto;
   background-color: #6e748d;
+}
+
+#button {
+  color: white;
 }
 
 .game {
@@ -148,4 +152,10 @@ button {
   height: 100%;
   background-image: url(http://i.imgur.com/uET5FWV.jpg);
   background-repeat: no-repeat;
+}
+
+.restart {
+  visibility: hidden;
+  position: fixed;
+  top: 200px
 }

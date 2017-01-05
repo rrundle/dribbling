@@ -8,6 +8,7 @@ var cone = document.querySelectorAll('.cone')
 var player = document.getElementById('player')
 
 var coneArray = []
+var pointTotal = []
 
 var startDribble
 var startCrash
@@ -15,6 +16,9 @@ var pointCount
 
 var points = 0
 var sessions = 5
+var sessionTotal = 0
+
+var sessionsLeft = document.getElementById('total-lives')
 
 var intro = document.querySelectorAll('.intro')
 var game = document.querySelectorAll('.game')
@@ -65,28 +69,39 @@ for (var i = 0; i < cone.length; i++) {
 
 function playerCrash(array, player) {
   var totalScore = document.getElementById('score')
+  var sessionScore = document.getElementById('session-score')
   for (var i = 0; i < array.length; i++) {
     if (((player.offsetLeft || (player.offsetLeft + 32)) >= array[i].x) && ((player.offsetLeft || (player.offsetLeft + 32)) <= (array[i].x + 40))) {
       if ((((player.offsetTop + 80) || (player.offsetTop + 100)) >= array[i].y) && (((player.offsetTop + 80) || (player.offsetTop + 100)) <= (array[i].y + 30))) {
         dribbler.speed = 0
-        sessionCounter(sessions)
+        sessionCounter(sessionsLeft)
         viewSwitch(game, crash)
         clearInterval(startDribble)
         clearInterval(startCrash)
         clearInterval(pointCount)
-        totalScore.textContent = 'Dribbling points: ' + points
+        totalScore.textContent = 'Total dribbling points: ' + points
+        pointTotal.push(points)
       }
     }
   }
   if (player.offsetTop < -80 || player.offsetTop > 620 || player.offsetLeft > 1420 || player.offsetLeft < 0) {
     dribbler.speed = 0
-    sessionCounter(sessions)
+    sessionCounter(sessionsLeft)
     viewSwitch(game, crash)
     clearInterval(startDribble)
     clearInterval(startCrash)
     clearInterval(pointCount)
-    totalScore.textContent = 'Dribbling points: ' + points
+    totalScore.textContent = 'Total dribbling points: ' + points
+    pointTotal.push(points)
   }
+  var score
+  if (pointTotal.length === 1) {
+    score = pointTotal[0]
+  }
+  else {
+    score = (pointTotal[sessionTotal - 1] - pointTotal[sessionTotal -2])
+  }
+  sessionScore.textContent = 'Session dribbling points: ' + score
 }
 
 function dribble() {
@@ -103,10 +118,15 @@ function pointCounter() {
   counter.textContent = 'Skill points: ' + points
 }
 
-function sessionCounter() {
+function sessionCounter(element) {
   sessions -= 1
-  var sessionsLeft = document.getElementById('total-lives')
-  sessionsLeft.textContent = 'Sessions remaining: ' + sessions
+  sessionTotal += 1
+  element.textContent = 'Sessions remaining: ' + sessions
+  if (sessions == 0) {
+    var retrain = document.querySelectorAll('.retrain')
+    var restart = document.querySelectorAll('.restart')
+    viewSwitch(retrain, restart)
+  }
 }
 
 //EVENT LISTENERS
@@ -144,7 +164,7 @@ document.addEventListener('keydown', function(e) {
 })
 
 document.addEventListener('click', function(e) {
-  if (e.target.id.indexOf('retrain') !== -1) {
+  if (e.target.className.indexOf('retrain') !== -1) {
     dribbler.location = [0,0]
     dribbler.speed = 1.5
     dribbler.direction = 'east'
@@ -152,6 +172,11 @@ document.addEventListener('click', function(e) {
     startDribble = setInterval(dribble, 1)
     startCrash = setInterval(checkCrash, 1)
     pointCount = setInterval(pointCounter, 25)
-    points = 0
+  }
+})
+
+document.addEventListener('click', function(e) {
+  if (e.target.className.indexOf('restart') !== -1) {
+    location.reload()
   }
 })
