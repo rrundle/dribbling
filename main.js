@@ -105,6 +105,8 @@ function pointCounter() {
 
 function sessionCounter() {
   sessions -= 1
+  var sessionsLeft = document.getElementById('total-lives')
+  sessionsLeft.textContent = 'Sessions remaining: ' + sessions
 }
 
 //EVENT LISTENERS
