@@ -8,11 +8,12 @@
    <body>
      <div class="field">
        <div class="intro" id="overlay">
-         <h1 class="intro">Dribbler</h1>
+         <h1 class="intro">Dribblr</h1>
          <p class="intro">Dribble around the cones, don't let the ball touch them!</p>
          <p class="intro">Don't go off the field or you'll be benched!</p>
          <p class="intro">Use the arrow keys to move your player.</p>
          <p class="intro">Click "Start Training" when you you're ready</p>
+         <p class="intro sessions">Sessions: 5</p>
          <div class="intro" id="button">
            <button class="intro" type="button" name="button">Start Training</button>
          </div>
@@ -21,9 +22,15 @@
      <div class="crash" id="tackle">
        <span id="ouch">Ouch!</span>
        You've been slide tackled. Keep practicing!
-       <span id="score"></span>
-       <button class="crash" id="retrain">Back to training</button>
+       <div id="score"></div>
+       <div id="session-score"></div>
+       <div class="retrain" id="total-lives"></div>
+       <button class="retrain">Back to training</button>
      </div>
+     <div class="restart">
+       You're crocked! Hit the showers and come back tomorrow. Stay off twitter.
+     </div>
+     <button class="restart">Restart training</button>
      <div class="game" id="legend">
        <span class="game" id="points"></span>
        <span class="game" id="lives"></span>
