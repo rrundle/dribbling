@@ -1,7 +1,20 @@
-//Setting variables
+//Setting global variables
+
 var guy = document.querySelector('.player')
 
 var dribbler = new Player([0, 0], 'east', 1.5, guy)
+
+var cone = document.querySelectorAll('.cone')
+var player = document.getElementById('player')
+
+var coneArray = []
+
+var startDribble
+var startCrash
+
+var intro = document.querySelectorAll('.intro')
+var game = document.querySelectorAll('.game')
+var crash = document.querySelectorAll('.crash')
 
 //functions and prototypes
 
@@ -42,19 +55,9 @@ function viewSwitch(hide, view) {
   }
 }
 
-//Register a crash with a cone
-
-var cone = document.querySelectorAll('.cone')
-var player = document.getElementById('player')
-var coneArray = []
-
 for (var i = 0; i < cone.length; i++) {
   coneArray.push({x: cone[i].offsetLeft, y: cone[i].offsetTop})
 }
-
-var intro = document.querySelectorAll('.intro')
-var game = document.querySelectorAll('.game')
-var crash = document.querySelectorAll('.crash')
 
 function playerCrash(array, player) {
   for (var i = 0; i < array.length; i++) {
@@ -62,25 +65,35 @@ function playerCrash(array, player) {
       if ((((player.offsetTop + 80) || (player.offsetTop + 100)) >= array[i].y) && (((player.offsetTop + 80) || (player.offsetTop + 100)) <= (array[i].y + 30))) {
         dribbler.speed = 0
         viewSwitch(game, crash)
+        clearInterval(startDribble)
+        clearInterval(startCrash)
+
       }
     }
   }
   if (player.offsetTop < -80 || player.offsetTop > 620 || player.offsetLeft > 1420 || player.offsetLeft < 0) {
     dribbler.speed = 0
     viewSwitch(game, crash)
+    clearInterval(startDribble)
+    clearInterval(startCrash)
   }
 }
 
-//event listeners
+function dribble() {
+  console.log(dribbler.location)
+  dribbler.NewSpot()
+}
+
+function checkCrash() {
+  playerCrash(coneArray, player)
+}
+
+//EVENT LISTENERS
 document.addEventListener('click', function(e) {
   if (e.target.className.indexOf('intro') !== -1) {
     viewSwitch(intro, game)
-    setInterval(function () {
-      dribbler.NewSpot()
-    }, 1)
-    setInterval(function () {
-      playerCrash(coneArray, player)
-    }, 1)
+    startDribble = setInterval(dribble, 1)
+    startCrash = setInterval(checkCrash, 1)
   }
 })
 
@@ -108,8 +121,13 @@ document.addEventListener('keydown', function(e) {
   }
 })
 
-//game over/restart action
-//don't allow player to go off field
-//points counter
-//penalize somone for going ack and forth constantly
-//speed increases over time or levels
+document.addEventListener('click', function(e) {
+  if (e.target.id.indexOf('retrain') !== -1) {
+    dribbler.location = [0,0]
+    dribbler.speed = 1.5
+    dribbler.direction = 'east'
+    viewSwitch(crash, game)
+    startDribble = setInterval(dribble, 1)
+    startCrash = setInterval(checkCrash, 1)
+  }
+})
