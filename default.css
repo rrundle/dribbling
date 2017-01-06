@@ -3,6 +3,134 @@ body {
   background-repeat: no-repeat;
   background-size: 100%;
   position: fixed;
+  font-family: raleway;
+  font-weight: 300;
+  font-size: 1.5em;
+}
+
+#title {
+  color: #094aa8;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+@-webkit-keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+  width: 200px;
+  margin-top: 25px;
+  font-size: 75px;
+}
+
+#ball {
+  font-size: 2.5em;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.highlight {
+  color: #094aa8;
+  font-weight: bold;
+}
+
+p {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+button {
+  border: 0;
+  background-color: #fff;
+  text-transform: none;
+  font-size: 1em;
+}
+
+#button {
+  background-color: white;
+  width: 200px;
+  height: 50px;
+  border: solid 3px #094aa8;
+  text-decoration: none;
+  margin: 15px auto;
+  color: #094aa8;
+  padding: auto;
+}
+
+#button:hover {
+  cursor: pointer;
+  color: #00305c;
+  border-color: #00305c;
 }
 
 .field {
@@ -29,27 +157,21 @@ body {
   width: 100%;
 }
 
-button {
-  width: 100px;
-  height: 50px;
-  margin: auto;
-  background-color: #6e748d;
-}
-
-#button {
-  color: white;
-}
-
 .game {
   visibility: hidden;
 }
 
 #legend {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 10px;
+  top: 10px;
   width: 200px;
   height: 100px;
+}
+
+#points {
+  padding: auto;
+  color: white;
 }
 
 #player {
@@ -141,7 +263,10 @@ button {
 }
 
 .crash {
-    visibility: hidden;
+  visibility: hidden;
+  color: white;
+  padding: 20px;
+  text-align: center;
 }
 
 #tackle {
@@ -150,12 +275,94 @@ button {
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url(http://i.imgur.com/uET5FWV.jpg);
+  background-image: url(http://i.imgur.com/qgq5nkJ.jpg);
   background-repeat: no-repeat;
+}
+
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+}
+
+#ouch {
+  font-weight: bold;
+  color: #cf0814;
+  font-size: 1.5em;
+}
+
+#retrain-button {
+  background: none;
+  border: solid 3px white;
+  font: white;
+  padding: auto;
+  margin-top: 25px;
+}
+
+#retrain-button:hover {
+  cursor: pointer;
+  color: #d0d0d0;
+  border-color: #d0d0d0;
 }
 
 .restart {
   visibility: hidden;
-  position: fixed;
-  top: 200px
+  margin: auto;
+}
+
+#restart-box {
+  width: 100%;
+  position: absolute;
+  top: 235px;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+#restart-button {
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  background: none;
+  border: solid 3px #cf0814;
+  color: #cf0814;
+  margin: 25px auto;
+  padding: auto;
+}
+
+#restart-button:hover {
+  cursor: pointer;
+  color: #fff;
+  border-color: #fff;
+}
+
+#crocked {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: auto;
+  padding-bottom: 15px;
+  color: #cf0814;
 }
