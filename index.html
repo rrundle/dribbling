@@ -4,35 +4,41 @@
      <meta charset="utf-8">
      <title>Dribbler | The best dribbling game ever</title>
      <link rel="stylesheet" href="default.css">
+     <link href="https://fonts.googleapis.com/css?family=Heebo:100|Lato:100,300|Raleway:100,200,300,700" rel="stylesheet">
+     <link rel="stylesheet" href="animate.min.css">
+     <script src="https://use.fontawesome.com/7fdda3cfec.js"></script>
    </head>
    <body>
      <div class="field">
        <div class="intro" id="overlay">
-         <h1 class="intro">Dribblr</h1>
+         <div id="ball"><i class="intro fa fa-futbol-o animated bounceInDown" aria-hidden="true"></i></div>
+         <h1 class="intro" id="title">Dribblr</h1>
          <p class="intro">Dribble around the cones, don't let the ball touch them!</p>
          <p class="intro">Don't go off the field or you'll be benched!</p>
          <p class="intro">Use the arrow keys to move your player.</p>
-         <p class="intro">Click "Start Training" when you you're ready</p>
-         <p class="intro sessions">Sessions: 5</p>
-         <div class="intro" id="button">
-           <button class="intro" type="button" name="button">Start Training</button>
+         <p class="intro">Click <span class="highlight">"Start Training"</span> when you're ready.</p>
+         <p class="intro sessions">Sessions: <span class="highlight">5</span></p>
+         <div class="intro">
+           <button class="intro" id="button">Start Training</button>
          </div>
        </div>
      </div>
      <div class="crash" id="tackle">
-       <span id="ouch">Ouch!</span>
-       You've been slide tackled. Keep practicing!
-       <div id="score"></div>
-       <div id="session-score"></div>
-       <div class="retrain" id="total-lives"></div>
-       <button class="retrain">Back to training</button>
+       <div class="crash" id="slide"><span id="ouch">Ouch! </span>You've been slide tackled. Keep practicing!</div>
+       <div class="crash" id="score"></div>
+       <div class="crash" id="session-score"></div>
+       <div class="retrain">
+         <div class="crash" id="total-lives"></div>
+         <button class="crash" id="retrain-button">Back to training</button>
+       </div>
      </div>
-     <div class="restart">
-       You're crocked! Hit the showers and come back tomorrow. Stay off twitter.
+     <div class="restart" id="restart-box">
+       <p id="crocked">You're crocked!</p>
+       <p>Hit the showers and come back tomorrow. Stay off twitter.</p>
+       <button id="restart-button">Restart training</button>
      </div>
-     <button class="restart">Restart training</button>
      <div class="game" id="legend">
-       <span class="game" id="points"></span>
+       <span class="game" id="points"><i class="fa fa-futbol-o" aria-hidden="true"></i></span>
        <span class="game" id="lives"></span>
      </div>
      <img class="game player" id="player" src="http://www.clker.com/cliparts/5/f/1/0/11971252021472931131sam_uy_futbolista_(soccer_player).svg.hi.png">

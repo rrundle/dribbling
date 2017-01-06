@@ -23,6 +23,7 @@ var sessionsLeft = document.getElementById('total-lives')
 var intro = document.querySelectorAll('.intro')
 var game = document.querySelectorAll('.game')
 var crash = document.querySelectorAll('.crash')
+var retrain = document.querySelector('.retrain')
 
 //functions and prototypes
 
@@ -74,8 +75,8 @@ function playerCrash(array, player) {
     if (((player.offsetLeft || (player.offsetLeft + 32)) >= array[i].x) && ((player.offsetLeft || (player.offsetLeft + 32)) <= (array[i].x + 40))) {
       if ((((player.offsetTop + 80) || (player.offsetTop + 100)) >= array[i].y) && (((player.offsetTop + 80) || (player.offsetTop + 100)) <= (array[i].y + 30))) {
         dribbler.speed = 0
-        sessionCounter(sessionsLeft)
         viewSwitch(game, crash)
+        sessionCounter(sessionsLeft)
         clearInterval(startDribble)
         clearInterval(startCrash)
         clearInterval(pointCount)
@@ -86,8 +87,8 @@ function playerCrash(array, player) {
   }
   if (player.offsetTop < -80 || player.offsetTop > 620 || player.offsetLeft > 1420 || player.offsetLeft < 0) {
     dribbler.speed = 0
-    sessionCounter(sessionsLeft)
     viewSwitch(game, crash)
+    sessionCounter(sessionsLeft)
     clearInterval(startDribble)
     clearInterval(startCrash)
     clearInterval(pointCount)
@@ -123,8 +124,13 @@ function sessionCounter(element) {
   sessionTotal += 1
   element.textContent = 'Sessions remaining: ' + sessions
   if (sessions == 0) {
-    var retrain = document.querySelectorAll('.retrain')
     var restart = document.querySelectorAll('.restart')
+    var retrainButton = document.getElementById('retrain-button')
+    retrainButton.parentNode.removeChild(retrainButton)
+    var totalLives = document.getElementById('total-lives')
+    totalLives.parentNode.removeChild(totalLives)
+    var slide = document.getElementById('slide')
+    slide.parentNode.removeChild(slide)
     viewSwitch(retrain, restart)
   }
 }
@@ -164,7 +170,7 @@ document.addEventListener('keydown', function(e) {
 })
 
 document.addEventListener('click', function(e) {
-  if (e.target.className.indexOf('retrain') !== -1) {
+  if (e.target.id.indexOf('retrain-button') !== -1) {
     dribbler.location = [0,0]
     dribbler.speed = 1.5
     dribbler.direction = 'east'
@@ -176,7 +182,7 @@ document.addEventListener('click', function(e) {
 })
 
 document.addEventListener('click', function(e) {
-  if (e.target.className.indexOf('restart') !== -1) {
+  if (e.target.id.indexOf('restart-button') !== -1) {
     location.reload()
   }
 })
