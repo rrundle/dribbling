@@ -107,6 +107,24 @@ function playerCrash(array, player) {
 
 function dribble() {
   dribbler.NewSpot()
+  var intensity = document.getElementById('intensity')
+  if (points >  750 && points <= 1250) {
+    dribbler.speed = 2
+    intensity.textContent = 'Intensity increasing!'
+    setTimeout(function() {
+      intensity.textContent = ''
+    }, 5000)
+  }
+  if (points > 1250 && points <= 2000) {
+    dribbler.speed = 2.5
+    intensity.setAttribute('id', 'intensity')
+    intensity.textContent = 'Intensity increasing!'
+  }
+  if (points > 2000) {
+    dribbler.speed = 3.5
+    intensity.setAttribute('id', 'intensity')
+    intensity.textContent = 'Intensity increasing!'
+  }
 }
 
 function checkCrash() {
