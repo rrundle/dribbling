@@ -80,7 +80,7 @@ function playerCrash(array, player) {
         clearInterval(startDribble)
         clearInterval(startCrash)
         clearInterval(pointCount)
-        totalScore.textContent = 'Total dribbling points: ' + points
+        totalScore.textContent = 'Total skill points: ' + points
         pointTotal.push(points)
       }
     }
@@ -92,7 +92,7 @@ function playerCrash(array, player) {
     clearInterval(startDribble)
     clearInterval(startCrash)
     clearInterval(pointCount)
-    totalScore.textContent = 'Total dribbling points: ' + points
+    totalScore.textContent = 'Total skill points: ' + points
     pointTotal.push(points)
   }
   var score
@@ -102,11 +102,43 @@ function playerCrash(array, player) {
   else {
     score = (pointTotal[sessionTotal - 1] - pointTotal[sessionTotal -2])
   }
-  sessionScore.textContent = 'Session dribbling points: ' + score
+  sessionScore.textContent = 'Session skill points earned: ' + score
+}
+
+function intensity(points) {
+  var intensity = document.getElementById('intensity')
+  if (points > 750 && points < 850) {
+    intensity.textContent = 'Intensity increasing!'
+    setTimeout(function() {
+      intensity.textContent = ''
+    }, 5000)
+  }
+  if (points > 1250 && points < 1400) {
+    intensity.textContent = 'Intensity increasing!'
+    setTimeout(function() {
+      intensity.textContent = ''
+    }, 5000)
+  }
+  if (points > 2000 && points < 2150) {
+    intensity.textContent = 'Intensity increasing!'
+    setTimeout(function() {
+      intensity.textContent = ''
+    }, 5000)
+  }
 }
 
 function dribble() {
   dribbler.NewSpot()
+  intensity(points)
+  if (points > 750 && points <= 1250) {
+    dribbler.speed = 2
+  }
+  if (points > 1250 && points <= 2000) {
+    dribbler.speed = 2.5
+  }
+  if (points > 2000) {
+    dribbler.speed = 3.5
+  }
 }
 
 function checkCrash() {
@@ -116,7 +148,7 @@ function checkCrash() {
 function pointCounter() {
   points += 1
   var counter = document.getElementById('points')
-  counter.textContent = 'Skill points: ' + points
+  counter.textContent = 'Skill points:  ' + points
 }
 
 function sessionCounter(element) {
