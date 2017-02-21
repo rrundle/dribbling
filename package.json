@@ -1,0 +1,27 @@
+{
+  "name": "dribblr",
+  "version": "1.0.0",
+  "description": "Soccer practice",
+  "engines": {
+    "node": "6.9.5"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rrundle/dribbling.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rrundle/dribbling/issues"
+  },
+  "homepage": "https://github.com/rrundle/dribbling#readme",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
