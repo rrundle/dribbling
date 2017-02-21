@@ -1,12 +1,13 @@
 {
-  "name": "dribbling",
+  "name": "dribblr",
   "version": "1.0.0",
-  "description": "<img src=\"http://i.imgur.com/PO6BNWA.png\">",
+  "description": "Soccer practice",
   "engines": {
     "node": "6.9.5"
   },
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
